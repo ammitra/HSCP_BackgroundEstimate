@@ -21,9 +21,9 @@ def _generate_constraints(nparams):
     out = {}
     for i in range(nparams):
         if i == 0:
-            out[i] = {"MIN":0,"MAX":5}
+            out[i] = {"MIN":-30,"MAX":30}
         else:
-            out[i] = {"MIN":-5,"MAX":5}
+            out[i] = {"MIN":-50,"MAX":50}
     return out
 
 # Dict to store transfer function forms and constraints
@@ -43,6 +43,10 @@ _rpf_options = {
     '1x1': {
         'form': '0.1*(@0+@1*x)*(1+@2*y)',
         'constraints': _generate_constraints(3)
+    },
+    '2x0': {
+        'form': '0.1*(@0+@1*x+@2*x**2)*(@3)',
+        'constraints': _generate_constraints(4)
     },
     '2x1': {
         'form': '0.1*(@0+@1*x+@2*x**2)*(1+@3*y)',
@@ -103,7 +107,7 @@ def make_workspace():
 	fail_name.replace('fail','rpf'),	# this is our pass/fail ratio
 	binning_f,				# we use the binning from fail
 	_rpf_options['0x0']['form'],		# let's make it constant in Ias (and ProbQ obviously)
-	_rpf_options['0x1']['constraints']	# use the default constraints [0,5]
+	_rpf_options['0x0']['constraints']	# use the default constraints [0,5]
     )
 
     # now define the bkg in pass as the bkg in fail multiplied by the transfer function (bkg_rpf)
@@ -143,6 +147,6 @@ def plot_fit():
     twoD.StdPlots('Signal_area', subset)
 
 if __name__ == "__main__":
-    make_workspace()
-    perform_fit(extra='--robustHesse 1')
+    #make_workspace()
+    #perform_fit(extra='--robustHesse 1 --freezeParameters var{Background_fail.*}')
     plot_fit()
