@@ -54,6 +54,15 @@ To make the workspace and run the fit, run
 ```
 python test.py
 ```
+explanation to come
 
-explanation to come 
-
+## Plotting environment
+```
+export SCRAM_ARCH=slc7_amd64_gcc700
+cmsrel CMSSW_12_3_0
+cd CMSSW_12_3_0/src
+cmsenv
+python -m virtualenv plotting-env
+source plotting-env/bin/activate
+pip install root_numpy mplhep matplotlib
+```
