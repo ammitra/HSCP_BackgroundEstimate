@@ -147,6 +147,6 @@ def plot_fit():
     twoD.StdPlots('Signal_area', subset)
 
 if __name__ == "__main__":
-    #make_workspace()
-    #perform_fit(extra='--robustHesse 1 --freezeParameters var{Background_fail.*}')
+    make_workspace()
+    perform_fit(extra='--robustHesse 1 --freezeParameters var{Background_fail.*}')
     plot_fit()
