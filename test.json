@@ -58,6 +58,9 @@
                     "MAX": 0.3
 		},
 		"HIGH": {
+		    "BINS": [0.3, 0.4, 1.0]
+		},
+		"HIGH_COMMENT": {
 		    "NBINS": 1,
 		    "MIN": 0.3,
 		    "MAX": 1.0
