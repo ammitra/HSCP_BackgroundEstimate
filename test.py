@@ -177,7 +177,7 @@ def GOF(condor=True, extra=''):
 
 def plot_GOF(condor=True):
     working_area = 'HSCP_fits'
-    plot.plot_gof('{}/Signal_area'.format(working_area), condor=condor)
+    plot.plot_gof('{}'.format(working_area), 'Signal_area', condor=condor)
 
 def load_RPF(twoD):
     '''	
@@ -197,6 +197,7 @@ def SignalInjection(r, condor=True):
 	blindData = True,	# make sure you're blinding if working with data
 	#setParams = params,     # give the toys the same RPF params
 	verbosity = 0,		# you can change this if you need
+	njobs=10,
 	condor = condor
     )
 
@@ -220,14 +221,14 @@ def run_limits():
     )
 
 if __name__ == "__main__":
-    #make_workspace()
-    #perform_fit(extra='--robustHesse 1')
-    #plot_fit()
-    #GOF(condor=False, extra='')
-    #SignalInjection(0)	# you can make a loop to run a bunch of injected xsecs
+    make_workspace()
+    perform_fit(extra='--robustHesse 1')
+    plot_fit()
+    GOF(condor=False, extra='')
+    SignalInjection(0, condor=False)	# you can make a loop to run a bunch of injected xsecs
     run_limits()
 
 
     # if you ran GOF/SigInj via condor, you need to wait until they're finished to run plotting:
-    #plot_GOF()
-    #plot_SignalInjection(0)
+    plot_GOF(condor=False)
+    plot_SignalInjection(0, condor=False)

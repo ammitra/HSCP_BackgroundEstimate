@@ -26,7 +26,7 @@
 	    "LOC": "path/FILE:HIST"
 	},
 	"Signal": {
-	    "SYSTEMATICS": [],
+	    "SYSTEMATICS": ["lumi"],
 	    "COLOR": 2,
 	    "SCALE": 2.0,
 	    "TYPE": "SIGNAL",
@@ -34,39 +34,39 @@
 	    "LOC": "path/FILE:HIST"	
 	}
     },
-    "SYSTEMATICS": {},
+    "SYSTEMATICS": {
+	"lumi": {
+            "CODE": 0,
+            "VAL": 1.018
+	}
+    },
     "BINNING": {
 	"test_binning": {
+	    "X": {
+                "NAME": "Ias",
+                "TITLE": "I_{as}",
+                "LOW": {
+                    "NBINS": 3,
+                    "MIN": 0.0,
+                    "MAX": 0.15
+                },
+                "SIG": {
+                    "NBINS": 3,
+                    "MIN": 0.15,
+                    "MAX": 0.3
+                },
+                "HIGH": {
+                    "BINS": [0.3, 0.4, 1.0]
+                },
+                "SIGSTART": 0.3,
+                "SIGEND": 1.0
+	    },
 	    "Y": {
                 "NAME": "ProbQ",
                 "TITLE": "ProbQ",
                 "NBINS": 1,
                 "MIN": 0.0,
-                "MAX": 1.0
-	    },
-	    "X": {
-		"NAME": "Ias",
-		"TITLE": "I_{as}",
-		"LOW": {
-		    "NBINS": 3,
-		    "MIN": 0.0,
-		    "MAX": 0.15
-		},
-		"SIG": {
-                    "NBINS": 3,
-                    "MIN": 0.15,
-                    "MAX": 0.3
-		},
-		"HIGH": {
-		    "BINS": [0.3, 0.4, 1.0]
-		},
-		"HIGH_COMMENT": {
-		    "NBINS": 1,
-		    "MIN": 0.3,
-		    "MAX": 1.0
-		},
-		"SIGSTART": 0.3,
-		"SIGEND": 1.0
+                "MAX": 1.0 
 	    }
 	}
     },
