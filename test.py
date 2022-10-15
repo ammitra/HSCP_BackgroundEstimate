@@ -219,6 +219,7 @@ def run_limits():
     print('Possible signals: {}'.format(twoD.iterWorkspaceObjs['Signal']))
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     #make_workspace()
     #perform_fit(extra='--robustHesse 1')
     #plot_fit()
@@ -228,3 +229,8 @@ if __name__ == "__main__":
     # if you ran GOF/SigInj via condor, you need to wait until they're finished to run plotting:
     #plot_GOF()
     #plot_SignalInjection(0)
+=======
+    make_workspace()
+    perform_fit(extra='--robustHesse 1 --freezeParameters var{Background_fail.*}')
+    plot_fit()
+>>>>>>> 95188e91b41e87e9cd7da08203c42021cb7dff8f
