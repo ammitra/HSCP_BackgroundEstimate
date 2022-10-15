@@ -210,20 +210,23 @@ def Impacts():
     twoD.Impacts('Signal_area', cardOrW='card.txt', extra='-t 1')
 
 def run_limits():
-    '''
-	NOT YET WORKING
-    '''
     working_area = 'HSCP_fits'
     twoD = TwoDAlphabet(working_area, '{}/runConfig.json'.format(working_area), loadPrevious=True)
-    print(twoD.iterWorkspaceObjs)
-    print('Possible signals: {}'.format(twoD.iterWorkspaceObjs['Signal']))
+    twoD.Limit(
+	subtag='Signal_area',
+	blindData=False,	# BE SURE TO CHANGE THIS IF YOU NEED TO BLIND YOUR DATA 
+	verbosity=1,
+	condor=False
+    )
 
 if __name__ == "__main__":
     #make_workspace()
     #perform_fit(extra='--robustHesse 1')
     #plot_fit()
-    GOF(condor=False, extra='')
+    #GOF(condor=False, extra='')
     #SignalInjection(0)	# you can make a loop to run a bunch of injected xsecs
+    run_limits()
+
 
     # if you ran GOF/SigInj via condor, you need to wait until they're finished to run plotting:
     #plot_GOF()
