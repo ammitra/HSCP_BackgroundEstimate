@@ -323,6 +323,107 @@ def plotPostfit(postfitShapesFile,region,odir):
     printYields(projections[0],projections[1:],tags[1:])
 
 
+def getLimits(rootFile,signalNorm=1.0):
+    f = r.TFile.Open(rootFile)
+    limitTree = f.Get("limit")
+    limits = []
+    for limit in limitTree:
+        limits.append(limit.limit*signalNorm)#signal is normalized to 1.0fb xsec
+
+    return limits
+
+def checkLimitFile(file):
+    if os.path.exists(file):
+        f = r.TFile.Open(file)
+        limitTree = f.Get("limit")
+        if(limitTree.GetEntriesFast()>1):
+            f.Close()
+            return True
+        else:
+            f.Close()
+            print("File with bad limit: {0}".format(file))
+            return False
+    else:
+        print("Missing file: {0}".format(file))
+        return False
+
+def readXsecs(xsecFile,scale=1.):
+    #scale can be used to convert pb-1 <-> fb-1
+    f = open(xsecFile)
+    xsecs = {}
+    for line in f:
+        if("m" in line):#Title line
+            continue
+        content = line.split(",")
+        xsecs[int(content[0])] = float(content[1].replace("\n",""))*scale
+
+    return xsecs
+
+def plotLimits(obs=False,lumi=138):
+    MX      = [800,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000]
+    limits  = []
+    goodMX  = []
+    theory  = readXsecs("limits/theory_xsec.csv")
+    for mx in MX:
+        file_limits = "limits/2018_HSCPgluino_M-{0}_CodeV40p4_v1/higgsCombineTest.AsymptoticLimits.mH120.root".format(mx)
+        if not (checkLimitFile(file_limits)):
+            continue
+        goodMX.append(mx/1000.)#We want to plot in TeV
+        signalNorm  = theory[mx]
+        limits.append(getLimits(file_limits,signalNorm))
+
+    #transpose so that:
+    #limitsDEta[0][:] corresponds to exp 95% limits low
+    #limitsDEta[1][:] corresponds to exp 68% limits low
+    #limitsDEta[2][:] corresponds to exp limits
+    #limitsDEta[3][:] corresponds to exp 68% limits up
+    #limitsDEta[4][:] corresponds to exp 95% limits up
+    #limitsDEta[5][:] corresponds to obs
+    limits = np.array(limits)
+    limits = limits.T.tolist() 
+
+
+
+    theoryLine  = sorted(theory.items()) #need to sort mass:xsec dict for plotting
+    theoryLineX, theoryLineY = zip(*theoryLine)
+    theoryLineX = tuple(x/1000. for x in theoryLineX) #convert mass to TeV
+
+    plt.style.use(hep.style.CMS)
+    lumiText = str(lumi)+ " $fb^{-1} (13 TeV)$"
+    hep.cms.lumitext(lumiText)
+    hep.cms.text("WiP",loc=0)
+
+    plt.fill_between(goodMX, limits[1], limits[3], color='forestgreen', label='68% expected')
+    plt.fill_between(goodMX, limits[0], limits[4], color='darkorange', label='95% expected')
+    plt.fill_between(goodMX, limits[1], limits[3], color='forestgreen', label='_nolegend_')
+    plt.plot(goodMX, limits[2], color='black', linewidth='2.4', linestyle='--', label=r'Median expected')
+    if(obs):
+        plt.plot(goodMX, limits[5], color='black', linewidth='2.4', linestyle='-', label=r'Observed')
+
+    plt.plot(theoryLineX, theoryLineY,color="blue", linewidth='2.4', linestyle='-', label=r'Theory HSCP gluino')
+
+    plt.xlabel(r'$m_{HSCP\, gluino} [TeV]$', horizontalalignment='right', x=1.0)
+    plt.ylabel(r'$\sigma_{HSCP\,gluino}\,[pb]$',horizontalalignment='right', y=1.0)
+    plt.yscale('log')
+    plt.ylim(10**-4, 10**-1)
+    plt.xlim(0.7,3.0)
+    plt.legend(loc='best', title='95% CL upper limits',ncol=1,title_fontsize=22,fontsize=20)
+
+
+
+    fig = matplotlib.pyplot.gcf()
+
+    if(obs):
+        print("Saving limits/obslim.pdf")
+        fig.savefig('limits/obslim.pdf')
+        fig.savefig('limits/obslim.png')
+    else:
+        print("Saving limits/explim.pdf")
+        fig.savefig('limits/explim.pdf')
+        fig.savefig('limits/explim.png')
+
+    plt.clf()
+
 if __name__ == '__main__':
     from pathlib import Path
     import matplotlib
@@ -332,6 +433,7 @@ if __name__ == '__main__':
     from root_numpy import hist2array
     import matplotlib.pyplot as plt
     import ctypes
+    import os
 
     r.gROOT.SetBatch(True)
     matplotlib.use('Agg')
@@ -355,4 +457,4 @@ if __name__ == '__main__':
     plotPostfit(fitFile,"fail",oDir)
     plotRPF(fitFile,oDir)
 
-
+    plotLimits(obs=True,lumi=10)
