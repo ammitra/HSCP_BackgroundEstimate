@@ -1,0 +1,120 @@
+ <<< Combine >>> 
+>>> random number generator seed is 123456
+>>> method used is FitDiagnostics
+Set Default Value of Parameter mask_fail_SIG To : 1
+Set Default Value of Parameter r To : 1
+>>> 1 out of 6 channels masked
+
+SimNLL created with 0 channels, 0 generic constraints, 1 fast gaussian constraints, 0 fast poisson constraints, 0 fast group constraints, 
+SimNLL created with 6 channels, 0 generic constraints, 1 fast gaussian constraints, 0 fast poisson constraints, 0 fast group constraints, 
+  [WARNING] Found [Background_fail_SIG_bin_1-1] at boundary. 
+  [WARNING] Found [Background_fail_SIG_bin_2-1] at boundary. 
+ [WARNING] After the fit some parameters are at their boundary.
+ [WARNING] Are you sure your model is correct?
+  [WARNING] Found [Background_fail_SIG_bin_1-1] at boundary. 
+  [WARNING] Found [Background_fail_SIG_bin_2-1] at boundary. 
+ [WARNING] After the fit some parameters are at their boundary.
+ [WARNING] Are you sure your model is correct?
+Running Minos for POI 
+>> Found 12 floating parameters
+>> The following parameters are protected in the event of negative eigenvalues: r
+>> Verifying eigenvalues are all positive (iteration 0)
+Eigenvalue 10 : -3.77031e-07
+ - 0.707105	Background_fail_SIG_bin_2-1
+ - 0.707105	Background_fail_SIG_bin_1-1
+ - -0.00151031	Background_rpf_par0
+ - -0.00112387	r
+ - 0.000624964	Background_fail_LOW_bin_1-1
+Eigenvalue 11 : -3.51762e-06
+ - 0.999982	r
+ - -0.00415014	Background_fail_HIGH_bin_1-1
+ - -0.00414468	lumi
+ - -0.000951156	Background_fail_LOW_bin_6-1
+ - 0.000794724	Background_fail_SIG_bin_1-1
+>> Attempt 0 failed, remove the variable with largest eigenvector component...
+>> Dropping Background_fail_HIGH_bin_1-1 from the hessian
+>> Verifying eigenvalues are all positive (iteration 1)
+Eigenvalue 9 : -2.10622e-07
+ - 0.999477	r
+ - -0.0226741	Background_fail_SIG_bin_1-1
+ - -0.0226741	Background_fail_SIG_bin_2-1
+ - -0.00414266	lumi
+ - -0.000951006	Background_fail_LOW_bin_6-1
+Eigenvalue 10 : -3.77205e-07
+ - 0.706742	Background_fail_SIG_bin_2-1
+ - 0.706742	Background_fail_SIG_bin_1-1
+ - 0.0320658	r
+ - -0.00151024	Background_rpf_par0
+ - 0.000624751	Background_fail_LOW_bin_1-1
+>> Attempt 1 failed, remove the variable with largest eigenvector component...
+>> Dropping Background_fail_SIG_bin_2-1 from the hessian
+>> Verifying eigenvalues are all positive (iteration 2)
+Eigenvalue 8 : -1.87739e-07
+ - -0.986856	Background_fail_SIG_bin_1-1
+ - 0.161598	r
+ - 0.00105047	Background_rpf_par0
+ - -0.000669795	lumi
+ - -0.000435559	Background_fail_LOW_bin_1-1
+Eigenvalue 9 : -2.11412e-07
+ - 0.986847	r
+ - 0.161599	Background_fail_SIG_bin_1-1
+ - -0.00409031	lumi
+ - -0.000937373	Background_fail_LOW_bin_6-1
+ - -0.000397629	Background_fail_LOW_bin_5-1
+>> Attempt 2 failed, remove the variable with largest eigenvector component...
+>> Dropping Background_fail_SIG_bin_1-1 from the hessian
+>> Verifying eigenvalues are all positive (iteration 3)
+Eigenvalue 8 : -2.10793e-07
+ - -0.999991	r
+ - 0.00414479	lumi
+ - 0.00095114	Background_fail_LOW_bin_6-1
+ - 0.000405286	Background_fail_LOW_bin_5-1
+ - 0.000169919	Background_fail_LOW_bin_4-1
+>> Attempt 3 failed, remove the variable with largest eigenvector component...
+>> Dropping lumi from the hessian
+>> Verifying eigenvalues are all positive (iteration 4)
+>> All eigenvalues are positive
+>> Inverting Hessian...
+>> Matrix inverted
+>> Note: the following parameters were dropped to make the covariance matrix pos-def:
+     - Background_fail_HIGH_bin_1-1
+     - Background_fail_SIG_bin_2-1
+     - Background_fail_SIG_bin_1-1
+     - lumi
+
+ --- FitDiagnostics ---
+Best fit r: 8.82627e-13  -8.82627e-13/+20  (68% CL)
+Done in 0.00 min (cpu), 0.00 min (real)
+Printing Message Summary From ... combine_logger.out
+----------------------------------------------
+Messages of type INFO : 25
+Messages of type DEBUG : 2
+Messages of type ERROR : 0
+----------------------------------------------
+INFO: (function: improveOnce) CascadeMinimizer.cc: 188 -- Minimisation configured with Type=Minuit2, Algo=Migrad, strategy=0, tolerance=0.1
+INFO: (function: improveOnce) CascadeMinimizer.cc: 211 -- Minimisation finished with status=0
+INFO: (function: improveOnce) CascadeMinimizer.cc: 216 -- Minimization success! status=0
+INFO: (function: improveOnce) CascadeMinimizer.cc: 188 -- Minimisation configured with Type=Minuit2, Algo=Migrad, strategy=0, tolerance=0.1
+INFO: (function: improveOnce) CascadeMinimizer.cc: 211 -- Minimisation finished with status=0
+INFO: (function: improveOnce) CascadeMinimizer.cc: 216 -- Minimization success! status=0
+INFO: (function: improveOnce) CascadeMinimizer.cc: 188 -- Minimisation configured with Type=Minuit2, Algo=Migrad, strategy=0, tolerance=0.1
+INFO: (function: improveOnce) CascadeMinimizer.cc: 211 -- Minimisation finished with status=0
+INFO: (function: improveOnce) CascadeMinimizer.cc: 216 -- Minimization success! status=0
+INFO: (function: anyParameterAtBoundaries) utils.cc: 1039 -- Found parameter Background_fail_SIG_bin_1-1 at boundary (within ~1sigma): 4.21965e-06+/-2.20437
+INFO: (function: anyParameterAtBoundaries) utils.cc: 1039 -- Found parameter Background_fail_SIG_bin_2-1 at boundary (within ~1sigma): 5.88498e-06+/-2.14014
+INFO: (function: minimize) CascadeMinimizer.cc: 480 -- After fit, some parameters are found at the boundary (within ~1sigma)
+INFO: (function: improveOnce) CascadeMinimizer.cc: 188 -- Minimisation configured with Type=Minuit2, Algo=Migrad, strategy=0, tolerance=0.1
+INFO: (function: improveOnce) CascadeMinimizer.cc: 211 -- Minimisation finished with status=0
+INFO: (function: improveOnce) CascadeMinimizer.cc: 216 -- Minimization success! status=0
+DEBUG: (function: runSpecific) FitDiagnostics.cc: 318 -- Fit B-only, status = 0, numBadNLL = 0, covariance quality = -1
+INFO: (function: improveOnce) CascadeMinimizer.cc: 188 -- Minimisation configured with Type=Minuit2, Algo=Migrad, strategy=0, tolerance=0.1
+INFO: (function: improveOnce) CascadeMinimizer.cc: 211 -- Minimisation finished with status=0
+INFO: (function: improveOnce) CascadeMinimizer.cc: 216 -- Minimization success! status=0
+INFO: (function: anyParameterAtBoundaries) utils.cc: 1039 -- Found parameter Background_fail_SIG_bin_1-1 at boundary (within ~1sigma): 1.38858e-06+/-2.19911
+INFO: (function: anyParameterAtBoundaries) utils.cc: 1039 -- Found parameter Background_fail_SIG_bin_2-1 at boundary (within ~1sigma): 1e-06+/-2.17038
+INFO: (function: minimize) CascadeMinimizer.cc: 480 -- After fit, some parameters are found at the boundary (within ~1sigma)
+INFO: (function: improveOnce) CascadeMinimizer.cc: 188 -- Minimisation configured with Type=Minuit2, Algo=Migrad, strategy=0, tolerance=0.1
+INFO: (function: improveOnce) CascadeMinimizer.cc: 211 -- Minimisation finished with status=0
+INFO: (function: improveOnce) CascadeMinimizer.cc: 216 -- Minimization success! status=0
+INFO: (function: doFit) FitterAlgoBase.cc: 343 -- Running Minos for POI r
+DEBUG: (function: runSpecific) FitDiagnostics.cc: 443 -- Fit S+B, status = 0, numBadNLL = 0, covariance quality = -1

@@ -3,7 +3,7 @@
     "GLOBAL": {
 	"FILE": "HSPC_$process.root",
 	"HIST": "h$region",
-	"path": "/uscms/home/ammitra/nobackup/TamasCombineTest/CMSSW_10_6_14/src"
+	"path": "./"
     },
     "REGIONS": {
 	"pass": {

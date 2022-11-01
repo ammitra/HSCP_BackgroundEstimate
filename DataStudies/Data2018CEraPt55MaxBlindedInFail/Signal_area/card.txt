@@ -1,0 +1,51 @@
+imax 6
+jmax 1
+kmax 1
+------------------------------------------------------------------------------------------------------------------------
+shapes  Signal               fail_LOW ../base.root w:Signal_fail_LOW w:Signal_fail_LOW_$SYSTEMATIC
+shapes  Signal               fail_SIG ../base.root w:Signal_fail_SIG w:Signal_fail_SIG_$SYSTEMATIC
+shapes  Signal               fail_HIGH ../base.root w:Signal_fail_HIGH w:Signal_fail_HIGH_$SYSTEMATIC
+shapes  Signal               pass_LOW ../base.root w:Signal_pass_LOW w:Signal_pass_LOW_$SYSTEMATIC
+shapes  Signal               pass_SIG ../base.root w:Signal_pass_SIG w:Signal_pass_SIG_$SYSTEMATIC
+shapes  Signal               pass_HIGH ../base.root w:Signal_pass_HIGH w:Signal_pass_HIGH_$SYSTEMATIC
+shapes  data_obs             fail_LOW ../base.root w:data_obs_fail_LOW
+shapes  data_obs             fail_SIG ../base.root w:data_obs_fail_SIG
+shapes  data_obs             fail_HIGH ../base.root w:data_obs_fail_HIGH
+shapes  data_obs             pass_LOW ../base.root w:data_obs_pass_LOW
+shapes  data_obs             pass_SIG ../base.root w:data_obs_pass_SIG
+shapes  data_obs             pass_HIGH ../base.root w:data_obs_pass_HIGH
+shapes  Background           fail_LOW ../base.root w:Background_fail_LOW
+shapes  Background           fail_SIG ../base.root w:Background_fail_SIG
+shapes  Background           fail_HIGH ../base.root w:Background_fail_HIGH
+shapes  Background           pass_LOW ../base.root w:Background_pass_LOW
+shapes  Background           pass_SIG ../base.root w:Background_pass_SIG
+shapes  Background           pass_HIGH ../base.root w:Background_pass_HIGH
+------------------------------------------------------------------------------------------------------------------------
+bin                 fail_LOW             fail_SIG             fail_HIGH            pass_LOW             pass_SIG             pass_HIGH           
+observation                   -1                   -1                   -1                   -1                   -1                   -1
+------------------------------------------------------------------------------------------------------------------------
+bin                                      fail_LOW             fail_SIG             fail_HIGH            pass_LOW             pass_SIG             pass_HIGH            fail_LOW             fail_SIG             fail_HIGH            pass_LOW             pass_SIG             pass_HIGH            
+process                                  Signal               Signal               Signal               Signal               Signal               Signal               Background           Background           Background           Background           Background           Background           
+process                                                     0                    0                    0                    0                    0                    0                    1                    1                    1                    1                    1                    1 
+rate                                     -1                   -1                   -1                   -1                   -1                   -1                   1                    1                    1                    1                    1                    1                    
+------------------------------------------------------------------------------------------------------------------------
+lumi                 lnN                                 1.018                1.018                1.018                1.018                1.018                1.018 -                    -                    -                    -                    -                    -                    
+Background_fail_LOW_bin_1-1              flatParam
+Background_fail_LOW_bin_2-1              flatParam
+Background_fail_LOW_bin_3-1              flatParam
+Background_fail_LOW_bin_4-1              flatParam
+Background_fail_LOW_bin_5-1              flatParam
+Background_fail_LOW_bin_6-1              flatParam
+Background_fail_SIG_bin_1-1              flatParam
+Background_fail_SIG_bin_2-1              flatParam
+Background_fail_HIGH_bin_1-1             flatParam
+Background_fail_LOW_bin_1-1              flatParam
+Background_fail_LOW_bin_2-1              flatParam
+Background_fail_LOW_bin_3-1              flatParam
+Background_fail_LOW_bin_4-1              flatParam
+Background_fail_LOW_bin_5-1              flatParam
+Background_fail_LOW_bin_6-1              flatParam
+Background_fail_SIG_bin_1-1              flatParam
+Background_fail_SIG_bin_2-1              flatParam
+Background_fail_HIGH_bin_1-1             flatParam
+Background_rpf_par0                      flatParam

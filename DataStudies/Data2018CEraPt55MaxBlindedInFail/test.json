@@ -1,0 +1,68 @@
+{
+    "NAME": "Data2018CEraPt55MaxBlindedConstFloatingRPF",
+    "GLOBAL": {
+	"FILE": "HSCP_$process.root",
+	"HIST": "h$region",
+	"path": "./"
+    },
+    "REGIONS": {
+	"pass": {
+	    "PROCESSES": ["Signal"],
+	    "BINNING": "test_binning"
+	},
+	"fail": {
+            "PROCESSES": ["Signal"],
+            "BINNING": "test_binning"
+	}
+    },
+    "PROCESSES": {
+	"data_obs": {
+	    "SYSTEMATICS":[],
+            "COLOR": 1,
+	    "SCALE": 2.0,
+            "TYPE": "DATA",
+            "TITLE": "Data",
+	    "ALIAS": "Data",
+	    "LOC": "path/FILE:HIST"
+	},
+	"Signal": {
+	    "SYSTEMATICS": ["lumi"],
+	    "COLOR": 2,
+	    "SCALE": 2.0,
+	    "TYPE": "SIGNAL",
+	    "TITLE": "Signal",
+	    "LOC": "path/FILE:HIST"	
+	}
+    },
+    "SYSTEMATICS": {
+	"lumi": {
+            "CODE": 0,
+            "VAL": 1.018
+	}
+    },
+    "BINNING": {
+        "test_binning": {
+            "X": {
+                "NAME": "Ias",
+                "TITLE": "I_{as}",
+                "NBINS":20,
+                "MIN":0.0,
+                "MAX":1.0,
+                "SIGSTART": 0.3,
+                "SIGEND": 0.4
+            },
+            "Y": {
+                "NAME": "ProbQ",
+                "TITLE": "ProbQ",
+                "NBINS": 1,
+                "MIN": 0.0,
+                "MAX": 1.0
+            }
+        }
+    },
+    "OPTIONS": {
+        "blindedFit": ["fail"],
+        "blindedPlots": ["fail"]
+    }
+}
+

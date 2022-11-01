@@ -1,0 +1,97 @@
+{
+  "BINNING": {
+    "test_binning": {
+      "X": {
+        "HIGH": {
+          "BINS": [
+            0.3, 
+            0.4, 
+            1.0
+          ]
+        }, 
+        "LOW": {
+          "MAX": 0.15, 
+          "MIN": 0.0, 
+          "NBINS": 3
+        }, 
+        "NAME": "Ias", 
+        "SIG": {
+          "MAX": 0.3, 
+          "MIN": 0.15, 
+          "NBINS": 3
+        }, 
+        "SIGEND": 1.0, 
+        "SIGSTART": 0.3, 
+        "TITLE": "I_{as}"
+      }, 
+      "Y": {
+        "MAX": 1.0, 
+        "MIN": 0.0, 
+        "NAME": "ProbQ", 
+        "NBINS": 1, 
+        "TITLE": "ProbQ"
+      }
+    }
+  }, 
+  "GLOBAL": {
+    "FILE": "HSCP_$process.root", 
+    "HIST": "h$region", 
+    "path": "./"
+  }, 
+  "NAME": "Data2018CEraPt55MaxBlinded", 
+  "OPTIONS": {
+    "blindedFit": [
+      "SIG", 
+      "HIGH"
+    ], 
+    "blindedPlots": [
+      "SIG", 
+      "HIGH"
+    ]
+  }, 
+  "PROCESSES": {
+    "Signal": {
+      "COLOR": 2, 
+      "LOC": ".//HSCP_$process.root:h$region", 
+      "NAME": "Signal", 
+      "SCALE": 2.0, 
+      "SYSTEMATICS": [
+        "lumi"
+      ], 
+      "TITLE": "Signal", 
+      "TYPE": "SIGNAL", 
+      "VARIATION": "nominal"
+    }, 
+    "data_obs": {
+      "ALIAS": "Data", 
+      "COLOR": 1, 
+      "LOC": ".//HSCP_$process.root:h$region", 
+      "NAME": "data_obs", 
+      "SCALE": 2.0, 
+      "SYSTEMATICS": [], 
+      "TITLE": "Data", 
+      "TYPE": "DATA", 
+      "VARIATION": "nominal"
+    }
+  }, 
+  "REGIONS": {
+    "fail": {
+      "BINNING": "test_binning", 
+      "PROCESSES": [
+        "Signal"
+      ]
+    }, 
+    "pass": {
+      "BINNING": "test_binning", 
+      "PROCESSES": [
+        "Signal"
+      ]
+    }
+  }, 
+  "SYSTEMATICS": {
+    "lumi": {
+      "CODE": 0, 
+      "VAL": 1.018
+    }
+  }
+}

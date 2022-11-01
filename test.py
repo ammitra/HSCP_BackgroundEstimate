@@ -224,11 +224,11 @@ if __name__ == "__main__":
     make_workspace()
     perform_fit(extra='--robustHesse 1')
     plot_fit()
-    GOF(condor=False, extra='')
-    SignalInjection(0, condor=False)	# you can make a loop to run a bunch of injected xsecs
-    run_limits()
+    #GOF(condor=False, extra='')
+    #SignalInjection(0, condor=False)	# you can make a loop to run a bunch of injected xsecs
+    #run_limits()
 
 
     # if you ran GOF/SigInj via condor, you need to wait until they're finished to run plotting:
-    plot_GOF(condor=False)
-    plot_SignalInjection(0, condor=False)
+    #plot_GOF(condor=False)
+    #plot_SignalInjection(0, condor=False)

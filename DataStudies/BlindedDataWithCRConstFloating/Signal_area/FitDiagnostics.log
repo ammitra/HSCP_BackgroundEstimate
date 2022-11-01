@@ -1,0 +1,59 @@
+ <<< Combine >>> 
+>>> random number generator seed is 123456
+>>> method used is FitDiagnostics
+Warning: Did not find a parameter with name mask_SIG_SIG
+Warning: Did not find a parameter with name mask_HIGH_SIG
+Set Default Value of Parameter r To : 1
+>>> 0 out of 6 channels masked
+
+SimNLL created with 0 channels, 0 generic constraints, 1 fast gaussian constraints, 0 fast poisson constraints, 0 fast group constraints, 
+SimNLL created with 6 channels, 0 generic constraints, 1 fast gaussian constraints, 0 fast poisson constraints, 0 fast group constraints, 
+Running Minos for POI 
+>> Found 11 floating parameters
+>> The following parameters are protected in the event of negative eigenvalues: r
+>> Verifying eigenvalues are all positive (iteration 0)
+Eigenvalue 10 : -7.59091e-05
+ - -0.997291	r
+ - 0.0673241	Background_fail_HIGH_bin_2-1
+ - 0.0239001	Background_fail_HIGH_bin_1-1
+ - 0.0154326	Background_fail_SIG_bin_3-1
+ - 0.00657808	Background_fail_SIG_bin_2-1
+>> Attempt 0 failed, remove the variable with largest eigenvector component...
+>> Dropping Background_fail_HIGH_bin_2-1 from the hessian
+>> Verifying eigenvalues are all positive (iteration 1)
+>> All eigenvalues are positive
+>> Inverting Hessian...
+>> Matrix inverted
+>> Note: the following parameters were dropped to make the covariance matrix pos-def:
+     - Background_fail_HIGH_bin_2-1
+
+ --- FitDiagnostics ---
+Best fit r: 2.9976e-14  -2.9976e-14/+20  (68% CL)
+Done in 0.00 min (cpu), 0.00 min (real)
+Printing Message Summary From ... combine_logger.out
+----------------------------------------------
+Messages of type INFO : 19
+Messages of type DEBUG : 2
+Messages of type ERROR : 0
+----------------------------------------------
+INFO: (function: improveOnce) CascadeMinimizer.cc: 188 -- Minimisation configured with Type=Minuit2, Algo=Migrad, strategy=0, tolerance=0.1
+INFO: (function: improveOnce) CascadeMinimizer.cc: 211 -- Minimisation finished with status=0
+INFO: (function: improveOnce) CascadeMinimizer.cc: 216 -- Minimization success! status=0
+INFO: (function: improveOnce) CascadeMinimizer.cc: 188 -- Minimisation configured with Type=Minuit2, Algo=Migrad, strategy=0, tolerance=0.1
+INFO: (function: improveOnce) CascadeMinimizer.cc: 211 -- Minimisation finished with status=0
+INFO: (function: improveOnce) CascadeMinimizer.cc: 216 -- Minimization success! status=0
+INFO: (function: improveOnce) CascadeMinimizer.cc: 188 -- Minimisation configured with Type=Minuit2, Algo=Migrad, strategy=0, tolerance=0.1
+INFO: (function: improveOnce) CascadeMinimizer.cc: 211 -- Minimisation finished with status=0
+INFO: (function: improveOnce) CascadeMinimizer.cc: 216 -- Minimization success! status=0
+INFO: (function: improveOnce) CascadeMinimizer.cc: 188 -- Minimisation configured with Type=Minuit2, Algo=Migrad, strategy=0, tolerance=0.1
+INFO: (function: improveOnce) CascadeMinimizer.cc: 211 -- Minimisation finished with status=0
+INFO: (function: improveOnce) CascadeMinimizer.cc: 216 -- Minimization success! status=0
+DEBUG: (function: runSpecific) FitDiagnostics.cc: 318 -- Fit B-only, status = 0, numBadNLL = 0, covariance quality = -1
+INFO: (function: improveOnce) CascadeMinimizer.cc: 188 -- Minimisation configured with Type=Minuit2, Algo=Migrad, strategy=0, tolerance=0.1
+INFO: (function: improveOnce) CascadeMinimizer.cc: 211 -- Minimisation finished with status=0
+INFO: (function: improveOnce) CascadeMinimizer.cc: 216 -- Minimization success! status=0
+INFO: (function: improveOnce) CascadeMinimizer.cc: 188 -- Minimisation configured with Type=Minuit2, Algo=Migrad, strategy=0, tolerance=0.1
+INFO: (function: improveOnce) CascadeMinimizer.cc: 211 -- Minimisation finished with status=0
+INFO: (function: improveOnce) CascadeMinimizer.cc: 216 -- Minimization success! status=0
+INFO: (function: doFit) FitterAlgoBase.cc: 343 -- Running Minos for POI r
+DEBUG: (function: runSpecific) FitDiagnostics.cc: 443 -- Fit S+B, status = 0, numBadNLL = 0, covariance quality = -1
