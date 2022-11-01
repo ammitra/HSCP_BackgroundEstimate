@@ -62,7 +62,15 @@ export SCRAM_ARCH=slc7_amd64_gcc700
 cmsrel CMSSW_12_3_0
 cd CMSSW_12_3_0/src
 cmsenv
-python -m virtualenv plotting-env
+python3 -m virtualenv plotting-env
 source plotting-env/bin/activate
-pip install root_numpy mplhep matplotlib
+pip install numpy root_numpy mplhep matplotlib
+```
+
+
+### Setting up plotting environment after new login
+```
+cd CMSSW_12_3_0/src
+cmsenv
+source plotting-env/bin/activate
 ```
