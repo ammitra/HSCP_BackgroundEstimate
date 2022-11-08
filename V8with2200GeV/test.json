@@ -1,0 +1,76 @@
+{
+    "NAME": "NotRelevantString",
+    "GLOBAL": {
+	"FILE": "HSCP_$process.root",
+	"HIST": "h$region",
+        "HIST_UP": "h$region_$syst_up",
+        "HIST_DOWN": "h$region_$syst_down",
+	"path": "./"
+    },
+    "REGIONS": {
+	"pass": {
+	    "PROCESSES": ["Signal"],
+	    "BINNING": "binning"
+	},
+	"fail": {
+            "PROCESSES": ["Signal"],
+            "BINNING": "binning"
+	}
+    },
+    "PROCESSES": {
+	"data_obs": {
+	    "SYSTEMATICS":[],
+            "COLOR": 1,
+	    "SCALE": 2.0,
+            "TYPE": "DATA",
+            "TITLE": "Data",
+	    "ALIAS": "Data",
+	    "LOC": "path/FILE:HIST"
+	},
+	"Signal": {
+	    "SYSTEMATICS": ["lumi","pileup"],
+	    "COLOR": 2,
+	    "SCALE": 2.0,
+	    "TYPE": "SIGNAL",
+	    "TITLE": "Signal",
+	    "LOC": "path/FILE:HIST"	
+	}
+    },
+    "SYSTEMATICS": {
+	"lumi": {
+            "CODE": 0,
+            "VAL": 1.018
+	},
+        "pileup": {
+            "ALIAS": "PUsyst",
+            "UP": "path/FILE:HIST_UP",
+            "DOWN": "path/FILE:HIST_DOWN",
+            "SIGMA": 1.0
+        }
+    },
+    "BINNING": {
+        "binning": {
+            "X": {
+                "NAME": "Ias",
+                "TITLE": "G_{I}^{Strips}",
+                "BINS": [0.0,0.05,0.1,0.15,0.2,0.25,0.3,0.4,1.0],
+                "MIN":0.0,
+                "MAX":1.0,
+                "SIGSTART": 0.3,
+                "SIGEND": 1.0
+            },
+            "Y": {
+                "NAME": "ProbQ",
+                "TITLE": "F_{I}^{Pixels}",
+                "NBINS": 1,
+                "MIN": 0.0,
+                "MAX": 1.0
+            }
+        }
+    },
+    "OPTIONS": {
+        "blindedFit": ["pass"],
+        "blindedPlots": ["pass"]
+    }
+}
+
