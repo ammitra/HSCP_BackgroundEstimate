@@ -109,14 +109,14 @@ def make_workspace():
                binning_f,                                    # we use the binning from fail
                opt['form'],                                  # was _rpf_options['0x0']['form'],
                constraints=opt['constraints']                # was _rpf_options['0x0']['constraints'] 
-         )
+           )
 
 
-    # now define the bkg in pass as the bkg in fail multiplied by the transfer function (bkg_rpf)
-    bkg_p = bkg_f.Multiply(fail_name.replace('fail','pass'), bkg_rpf)
+           # now define the bkg in pass as the bkg in fail multiplied by the transfer function (bkg_rpf)
+           bkg_p = bkg_f.Multiply(fail_name.replace('fail','pass')+'_'+opt_name, bkg_rpf)
 
-    # then add this to the 2DAlphabet ledger
-    twoD.AddAlphaObj('Background',p,bkg_p,title='Background')
+           # then add this to the 2DAlphabet ledger
+           twoD.AddAlphaObj('Background_'+opt_name,p,bkg_p,title='Background')
 
     # and save it out
     twoD.Save()
@@ -337,7 +337,7 @@ def test_FTest(poly1, poly2, signal=''):
     plot_FTest(base_fstat,nRpfs1,nRpfs2,nBins)
 
 if __name__ == "__main__":
-    #make_workspace()
+    make_workspace()
     perform_fit('gluino-1800','0x0',extra='--robustHesse 1')
     #plot_fit('gluino-1800','0x0' )
     #GOF(condor=False, extra='--text2workspace "--channel-masks" --setParametersForFit mask_pass_SIG=1 --setParametersForEval mask_pass_SIG=1')
